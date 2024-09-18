@@ -12,11 +12,13 @@ class Jedi:
 
     def introduce(self):
         # Method to introduce the Jedi
-        pass  # Students will fill this in with functionality
+        print(f"I am {self.name}, a {self.rank}. my lightsaber is {self.lightsaber_color}.")
+    
 
-    def lightsaber_attack(self, sith):
+    def lightsaber_attack(self, sith, name):
         # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        sith.health - 50
+        print(f"jedi {name} attacks sith! they're now at {sith.health} health.")
 
 
 class Sith:
@@ -28,12 +30,13 @@ class Sith:
 
     def introduce(self):
         # Method to introduce the Sith
-        pass  # Students will fill this in with functionality
+        print(f"I am {self.name}, a {self.rank}. my lightsaber is {self.lightsaber_color}.")
+        
 
-    def lightsaber_attack(self, jedi):
+    def lightsaber_attack(self, jedi, name):
         # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
-
+        jedi.health - 50
+        print(f"sith {name} attacks jedi! they're now at {jedi.health} health.")
 
 # Define the Adventure class for random encounters
 class Adventure:
@@ -42,7 +45,12 @@ class Adventure:
 
     def random_encounter(self):
         # Method for random encounters
-        pass  # Students will fill this in with functionality
+        encounters = [
+            "you found a jedi!",
+            "you encountered a sith!",
+            "you found a holocron!"
+        ]
+        return random.choice(encounters)
 
 
 # Main adventure loop
@@ -63,10 +71,13 @@ def start_adventure():
         if action == "explore":
             encounter = adventure.random_encounter()
             print(encounter)
-            # Based on encounter, students will decide what happens next
+            if "Jedi" in encounter:
+                jedi.introduce()
+            elif "Sith" in encounter:
+                sith.intyroduce()
 
         elif action == "duel":
-            # Students will implement dueling functionality here
+            start_duel(jedi, sith)
             print("Prepare for a lightsaber duel!")
             # Example: jedi.lightsaber_attack(sith)
 
@@ -75,6 +86,13 @@ def start_adventure():
             break
         else:
             print("Invalid action. Try again.")
+
+    def start_duel(jedi, sith):
+        print ("a duel has started !")
+        jedi.lightsaber_attack(sith)
+        sith.lightsaber_attack(jedi)
+        print(f"jedi {jedi.name} health: {jedi.health}")
+        print(f"sith {sith.name} health: {sith.health}")
 
 # Start the adventure
 start_adventure()
