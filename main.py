@@ -1,7 +1,7 @@
 import random
 
 # Define the Jedi and Sith classes
-# Students will extend these classes by adding methods and attributes as needed
+# Extend these classes by adding methods and attributes as needed
 
 class Jedi:
     def __init__(self, name, lightsaber_color, rank, health=100):
@@ -12,11 +12,11 @@ class Jedi:
 
     def introduce(self):
         # Method to introduce the Jedi
-        pass  # Students will fill this in with functionality
+        pass  # Fill this in with functionality
 
     def lightsaber_attack(self, sith):
         # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        pass  # Fill this in with functionality
 
 
 class Sith:
@@ -28,11 +28,11 @@ class Sith:
 
     def introduce(self):
         # Method to introduce the Sith
-        pass  # Students will fill this in with functionality
+        pass  # Fill this in with functionality
 
     def lightsaber_attack(self, jedi):
         # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        pass  # Fill this in with functionality
 
 
 # Define the Adventure class for random encounters
@@ -42,7 +42,7 @@ class Adventure:
 
     def random_encounter(self):
         # Method for random encounters
-        pass  # Students will fill this in with functionality
+        pass  # Fill this in with functionality
 
 
 # Main adventure loop
@@ -63,10 +63,10 @@ def start_adventure():
         if action == "explore":
             encounter = adventure.random_encounter()
             print(encounter)
-            # Based on encounter, students will decide what happens next
+            # Based on encounter, decide what happens next
 
         elif action == "duel":
-            # Students will implement dueling functionality here
+            # Implement dueling functionality here
             print("Prepare for a lightsaber duel!")
             # Example: jedi.lightsaber_attack(sith)
 
