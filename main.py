@@ -42,8 +42,19 @@ class Adventure:
 
     def random_encounter(self):
         # Method for random encounters
-        pass  # Students will fill this in with functionality
+        encounters = [
+            "your found a jedi!",
+            "you encountered a sith!",
+            "you found a holocron!"
+        ]
+        return random.choice(encounters)
 
+def start_duel(jedi, sith):
+    print("a duel has started")
+    jedi.lightsaber_attack(sith)
+    sith.lightsaber_attack(jedi)
+    print(f"jedi {Jedi.name} health: {Jedi.health}")
+    print(f"sith {Sith.name} health: {Sith.health}")
 
 # Main adventure loop
 def start_adventure():
@@ -68,6 +79,8 @@ def start_adventure():
         elif action == "duel":
             # Students will implement dueling functionality here
             print("Prepare for a lightsaber duel!")
+            start_duel(jedi, sith)
+
             # Example: jedi.lightsaber_attack(sith)
 
         elif action == "quit":
