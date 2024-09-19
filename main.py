@@ -1,7 +1,7 @@
 import random
 
 # Define the Jedi and Sith classes
-# Students will extend these classes by adding methods and attributes as needed
+# Extend these classes by adding methods and attributes as needed
 
 class Jedi:
     def __init__(self, name, lightsaber_color, rank, health=100):
@@ -11,12 +11,20 @@ class Jedi:
         self.health = health
 
     def introduce(self):
-        # Method to introduce the Jedi
-        pass  # Students will fill this in with functionality
+         print(f"howdy, I am Jedi {self.name}, a {self.rank}. My Lightsaber is {self.lightsaber_color}")
 
     def lightsaber_attack(self, sith):
-        # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        # Method to introduce the Jedi
+        damage = random.randint(10, 30)
+        sith.health -= damage
+        print(f"{self.name} attacks {sith.name} with {self.lightsaber_color}, dealing {damage} damage")
+        if sith.health <= 0:
+            print(f"{sith.name} has been defeated")
+        else:
+            print(f"{sith.name} has {sith.health} left...")
+
+    def use_force(self, ):
+        print(f"{self.name} uses the force to gain and advantage.")
 
 
 class Sith:
@@ -28,11 +36,20 @@ class Sith:
 
     def introduce(self):
         # Method to introduce the Sith
-        pass  # Students will fill this in with functionality
+        print(f"howdy, I am Sith Lord {self.name}, a {self.rank}. My Lightsaber is {self.lightsaber_color}")
 
     def lightsaber_attack(self, jedi):
-        # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+         # Method to introduce the Jedi
+        damage = random.randint(10, 30)
+        jedi.health -= damage
+        print(f"{self.name} attacks {jedi.name} with {self.lightsaber_color}, dealing {damage} damage")
+        if jedi.health <= 0:
+            print(f"{jedi.name} has been defeated")
+        else:
+            print(f"{jedi.name} has {jedi.health} left...")
+
+    def use_force(self, ):
+        print(f"{self.name} uses the force to gain and advantage.")
 
 
 # Define the Adventure class for random encounters
@@ -43,18 +60,16 @@ class Adventure:
     def random_encounter(self):
         # Method for random encounters
         encounters = [
-            "your found a jedi!",
-            "you encountered a sith!",
-            "you found a holocron!"
+            "you find a jedi temple",
+            "you encountered a Sith Lord",
+            "You Find the Millenium falcon",
+            "you found a holocron",
+            "you were ambushed by bounty hunters"
         ]
         return random.choice(encounters)
 
 def start_duel(jedi, sith):
-    print("a duel has started")
-    jedi.lightsaber_attack(sith)
-    sith.lightsaber_attack(jedi)
-    print(f"jedi {Jedi.name} health: {Jedi.health}")
-    print(f"sith {Sith.name} health: {Sith.health}")
+while jedi.health
 
 # Main adventure loop
 def start_adventure():
@@ -74,14 +89,13 @@ def start_adventure():
         if action == "explore":
             encounter = adventure.random_encounter()
             print(encounter)
-            # Based on encounter, students will decide what happens next
+            # Based on encounter, decide what happens next
 
         elif action == "duel":
-            # Students will implement dueling functionality here
+            # Implement dueling functionality here
             print("Prepare for a lightsaber duel!")
-            start_duel(jedi, sith)
-
             # Example: jedi.lightsaber_attack(sith)
+            start_duel(jedi, sith)
 
         elif action == "quit":
             print("Thanks for playing!")
