@@ -93,9 +93,10 @@ def start_adventure():
         else:
             print("Invalid action. Try again.")
    
-def start_duel(jedi,sith):
-    jedi.lightsaber_attack(sith)
-    sith.lightsaber_attack(jedi)
-    print(f"Jedi {jedi.name} health : {jedi.health}")
-    print(f"Jedi {sith.name} health : {sith.health}")
+def start_duel(jedi,sith): 
+    while jedi.health > 0 and sith.health >0:
+        jedi.lightsaber_attack(sith)
+        sith.lightsaber_attack(jedi)
+        print(f"Jedi {jedi.name} health : {jedi.health}")
+        print(f"Jedi {sith.name} health : {sith.health}")
 start_adventure()
