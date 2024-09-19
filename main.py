@@ -11,14 +11,20 @@ class Jedi:
         self.health = health
 
     def introduce(self):
-        # Method to introduce the Jedi
-        pass  # Students will fill this in with functionality
+        print(f"Hello I'm {self.name} nice to meet you im a jedi and i am a {self.rank}.")
+       
 
     def lightsaber_attack(self, sith):
-        # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        damage=random.randint(10,30)
+        sith.health-=damage
+        print(f"{self.name} attacks {sith.name} with {self.lightsaber_color} dealing {damage } damage") 
+        if sith.health<=0:
+            print(f"{sith.name} has been defeated")
+        else:
+            print(f"{sith.name} has {sith.health} left...")
 
-
+    def use_force(self,):
+        print(f"{self.name} uses force attack to gain advantage")
 class Sith:
     def __init__(self, name, lightsaber_color, rank, health=100):
         self.name = name
@@ -27,13 +33,19 @@ class Sith:
         self.health = health
 
     def introduce(self):
-        # Method to introduce the Sith
-        pass  # Students will fill this in with functionality
-
+        print(f"Hello I'm {self.name} nice to meet you im a sith and i am {self.rank}.")
+       
     def lightsaber_attack(self, jedi):
-        # Method for a lightsaber attack
-        pass  # Students will fill this in with functionality
+        damage=random.randint(10,30)
+        jedi.health-=damage
+        print(f"{self.name} attacks {jedi.name} with {self.lightsaber_color} dealing {damage } damage")
+        if jedi.health<=0:
+            print(f"{jedi.name} has been defeated")
+        else:
+            print(f"{jedi.name}has {jedi.health} left...")
 
+    def use_force(self,):
+        print(f"{self.name} uses force attack to gain advantage")
 
 # Define the Adventure class for random encounters
 class Adventure:
@@ -41,9 +53,12 @@ class Adventure:
         self.player_name = player_name
 
     def random_encounter(self):
-        # Method for random encounters
-        pass  # Students will fill this in with functionality
-
+       encounters = [
+            "You found a Jedi!",
+            "You ecountered a Sith!",
+            " You found a holocron"
+         ] 
+       return random.choice(encounters)
 
 # Main adventure loop
 def start_adventure():
@@ -63,18 +78,24 @@ def start_adventure():
         if action == "explore":
             encounter = adventure.random_encounter()
             print(encounter)
-            # Based on encounter, students will decide what happens next
+            if "Jedi" in encounter:
+                jedi.introduce()
+            elif "Sith" in encounter:
+                sith.introduce()
 
         elif action == "duel":
-            # Students will implement dueling functionality here
+            print("A duel has started!")
             print("Prepare for a lightsaber duel!")
-            # Example: jedi.lightsaber_attack(sith)
-
+            start_duel(jedi, sith)
         elif action == "quit":
             print("Thanks for playing!")
             break
         else:
             print("Invalid action. Try again.")
-
-# Start the adventure
+   
+def start_duel(jedi,sith):
+    jedi.lightsaber_attack(sith)
+    sith.lightsaber_attack(jedi)
+    print(f"Jedi {jedi.name} health : {jedi.health}")
+    print(f"Jedi {sith.name} health : {sith.health}")
 start_adventure()
